@@ -5,26 +5,40 @@ import { Link } from 'react-router-dom';
 import athlete from '../img/athlete-small.png';
 import theracer from '../img/theracer-small.png';
 import goodtimes from '../img/goodtimes-small.png';
+//Animation
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
 
 const OurWork = () => {
 	return (
-		<Work>
+		<Work
+			variants={pageAnimation}
+			initial='hidden'
+			animate='show'
+			exit='exit'
+			style={{ background: '#fff' }}>
 			<Movie>
-				<h2>The Athlete</h2>
+				<Link to='/work/the-athlete' style={{ textDecoration: 'none' }}>
+					<h2>The Athlete</h2>
+				</Link>
 				<div className='line'></div>
 				<Link to='/work/the-athlete'>
 					<img src={athlete} alt='Athlete' />
 				</Link>
 			</Movie>
 			<Movie>
-				<h2>The Racer</h2>
+				<Link to='/work/the-racer' style={{ textDecoration: 'none' }}>
+					<h2>The Racer</h2>
+				</Link>
 				<div className='line'></div>
 				<Link to='/work/the-racer'>
 					<img src={theracer} alt='The Racer' />
 				</Link>
 			</Movie>
 			<Movie>
-				<h2>Good Times</h2>
+				<Link to='/work/good-times' style={{ textDecoration: 'none' }}>
+					<h2>Good Times</h2>
+				</Link>
 				<div className='line'></div>
 				<Link to='/work/good-times'>
 					<img src={goodtimes} alt='Good Times' />
@@ -34,7 +48,7 @@ const OurWork = () => {
 	);
 };
 
-const Work = styled.div`
+const Work = styled(motion.div)`
 	min-height: 100vh;
 	overflow: hidden;
 	padding: 5rem 10rem;
@@ -47,16 +61,16 @@ const Movie = styled.div`
 	padding-bottom: 10rem;
 	.line {
 		height: 0.5rem;
-		background: #cccccc;
+		background: #23d997;
 		margin-bottom: 3rem;
 	}
 	img {
 		width: 100%;
-		height: 70vh;
+		height: 90vh;
 		object-fit: cover;
 	}
 	h2 {
-		color: #23d997;
+		color: #282828;
 	}
 `;
 
