@@ -7,7 +7,14 @@ import theracer from '../img/theracer-small.png';
 import goodtimes from '../img/goodtimes-small.png';
 //Animation
 import { motion } from 'framer-motion';
-import { pageAnimation } from '../animation';
+import {
+	pageAnimation,
+	fade,
+	photoAnim,
+	lineAnim,
+	slider,
+	sliderContainer,
+} from '../animation';
 
 const OurWork = () => {
 	return (
@@ -17,13 +24,21 @@ const OurWork = () => {
 			animate='show'
 			exit='exit'
 			style={{ background: '#fff' }}>
+			<motion.div variants={sliderContainer}>
+				<Frame1 variants={slider}></Frame1>
+				<Frame2 variants={slider}></Frame2>
+				<Frame3 variants={slider}></Frame3>
+				<Frame4 variants={slider}></Frame4>
+			</motion.div>
 			<Movie>
 				<Link to='/work/the-athlete' style={{ textDecoration: 'none' }}>
-					<h2>The Athlete</h2>
+					<motion.h2 variants={fade}>The Athlete</motion.h2>
 				</Link>
-				<div className='line'></div>
+				<motion.div className='line' variants={lineAnim}></motion.div>
 				<Link to='/work/the-athlete'>
-					<img src={athlete} alt='Athlete' />
+					<Hide>
+						<motion.img src={athlete} alt='Athlete' variants={photoAnim} />
+					</Hide>
 				</Link>
 			</Movie>
 			<Movie>
@@ -72,6 +87,33 @@ const Movie = styled.div`
 	h2 {
 		color: #282828;
 	}
+`;
+
+const Hide = styled.div`
+	overflow: hidden;
+`;
+
+//Frame Animation
+const Frame1 = styled(motion.div)`
+	position: fixed;
+	left: 0;
+	top: 10%;
+	width: 100%;
+	height: 100vh;
+	background: #fffebf;
+	z-index: 2;
+`;
+
+const Frame2 = styled(Frame1)`
+	background: #ff8efb;
+`;
+
+const Frame3 = styled(Frame1)`
+	background: #8ed2ff;
+`;
+
+const Frame4 = styled(Frame1)`
+	background: #87db95;
 `;
 
 export default OurWork;
