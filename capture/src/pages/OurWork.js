@@ -15,8 +15,12 @@ import {
 	slider,
 	sliderContainer,
 } from '../animation';
+import { useScroll } from '../components/useScroll';
 
 const OurWork = () => {
+	const [element, controls] = useScroll();
+	const [element2, controls2] = useScroll();
+
 	return (
 		<Work
 			variants={pageAnimation}
@@ -41,20 +45,24 @@ const OurWork = () => {
 					</Hide>
 				</Link>
 			</Movie>
-			<Movie>
+			<Movie ref={element} variants={fade} animate={controls} initial='hidden'>
 				<Link to='/work/the-racer' style={{ textDecoration: 'none' }}>
 					<h2>The Racer</h2>
 				</Link>
-				<div className='line'></div>
+				<motion.div variants={lineAnim} className='line'></motion.div>
 				<Link to='/work/the-racer'>
 					<img src={theracer} alt='The Racer' />
 				</Link>
 			</Movie>
-			<Movie>
+			<Movie
+				ref={element2}
+				variants={fade}
+				animate={controls2}
+				initial='hidden'>
 				<Link to='/work/good-times' style={{ textDecoration: 'none' }}>
 					<h2>Good Times</h2>
 				</Link>
-				<div className='line'></div>
+				<motion.div variants={lineAnim} className='line'></motion.div>
 				<Link to='/work/good-times'>
 					<img src={goodtimes} alt='Good Times' />
 				</Link>
@@ -72,7 +80,7 @@ const Work = styled(motion.div)`
 	}
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
 	padding-bottom: 10rem;
 	.line {
 		height: 0.5rem;
@@ -97,7 +105,7 @@ const Hide = styled.div`
 const Frame1 = styled(motion.div)`
 	position: fixed;
 	left: 0;
-	top: 10%;
+	top: 0;
 	width: 100%;
 	height: 100vh;
 	background: #fffebf;
