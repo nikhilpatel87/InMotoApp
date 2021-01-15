@@ -1,7 +1,7 @@
 import React from 'react';
 //Animation
 import { motion } from 'framer-motion';
-import { pageAnimation, titleAnim } from '../animation';
+import { pageAnimation, titleAnim, lineAnim } from '../animation';
 
 import styled from 'styled-components';
 
@@ -17,7 +17,9 @@ const ContactUs = () => {
 				<Hide>
 					<motion.h2 variants={titleAnim}>Get In Touch.</motion.h2>
 				</Hide>
+				<motion.div className='line' variants={lineAnim}></motion.div>
 			</Title>
+
 			<div>
 				<Hide>
 					<Social variants={titleAnim}>
@@ -53,6 +55,12 @@ const ContactStyle = styled(motion.div)`
 const Title = styled.div`
 	margin-bottom: 4rem;
 	color: black;
+	.line {
+		height: 0.5rem;
+		background: #23d997;
+		margin-bottom: 3rem;
+		margin-top: 1rem;
+	}
 `;
 
 const Hide = styled.div`
@@ -62,7 +70,7 @@ const Hide = styled.div`
 const Circle = styled.div`
 	border-radius: 50%;
 	width: 3rem;
-	height 3rem;
+	height: 3rem;
 	background: #23d997;
 `;
 
