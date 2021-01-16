@@ -74,6 +74,12 @@ const Headline = styled.div`
 		object-fit: cover;
 		padding-top: 1rem;
 	}
+	@media screen and (max-width: 1300px) {
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
 `;
 
 const Awards = styled.div`
@@ -84,7 +90,7 @@ const Awards = styled.div`
 	justify-content: space-around;
 	@media (max-width: 1300px) {
 		display: block;
-		margin: 2rem 2rem;
+		margin: 0rem 2rem;
 	}
 `;
 
@@ -110,6 +116,12 @@ const ImageDisplay = styled.div`
 		width: 100%;
 		height: 120vh;
 		object-fit: cover;
+	}
+	@media screen and (max-width: 1300px) {
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 `;
 
